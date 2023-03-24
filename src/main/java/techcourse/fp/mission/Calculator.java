@@ -1,14 +1,14 @@
 package techcourse.fp.mission;
 
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Calculator {
 
-    public static int sumWhen(List<Integer> numbers, Function<Integer, Boolean> sumCondition) {
+    public static int sumWhen(List<Integer> numbers, Predicate<Integer> sumCondition) {
         int total = 0;
         for (int number : numbers) {
-            if (sumCondition.apply(number)) {
+            if (sumCondition.test(number)) {
                 total += number;
             }
         }
@@ -16,7 +16,7 @@ public class Calculator {
     }
 
     public static int sumAll(List<Integer> numbers) {
-        return sumWhen(numbers, num -> (true));
+        return sumWhen(numbers, number -> true);
     }
 
     public static int sumAllEven(List<Integer> numbers) {
@@ -25,7 +25,7 @@ public class Calculator {
 
     public static int sumAllOverThree(List<Integer> numbers) {
         int total = 0;
-
         return 0;
+
     }
 }
